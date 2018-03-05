@@ -110,6 +110,7 @@ export default {
           callback();
         }
       };
+      
       return {
           loginTitle:'用户登录',
           unameInput:'请输入用户名',
