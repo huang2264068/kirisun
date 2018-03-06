@@ -38,7 +38,7 @@
                                 <el-form-item prop="uname" style="width:85%">
                                     <el-input type="text" v-model="ruleForm2.uname" :placeholder="unameInput" auto-complete="off"></el-input>
                                 </el-form-item>
-                                <el-form-item prop="checkPass" style="width:85%">
+                                <el-form-item prop="pass" style="width:85%">
                                     <el-input type="password" v-model="ruleForm2.pass" :placeholder="upwdInput" auto-complete="off"></el-input>
                                 </el-form-item>
                                 <el-form-item prop="checkInput" >
@@ -48,8 +48,13 @@
                                         <div class="move moveBefore" v-move></div>
                                     </div>
                                 </el-form-item>
-                                <el-form-item prop="checkInput" >
-                                    
+                                <el-form-item>
+                                    <el-col :lg="3" :sm="4"  >
+                                        1
+                                    </el-col>
+                                    <el-col :lg="4" :sm="4"  >
+                                        2
+                                    </el-col>
                                 </el-form-item>
                                 <el-form-item style="width:85%">
                                     <el-button type="success" @click="submitForm('ruleForm2')" style="width:100%">登录</el-button>
@@ -88,7 +93,22 @@
                 </el-col>
             </el-row> -->
         </el-main>
-        <el-footer class="foot">Footer</el-footer>
+        <el-footer class="foot">
+            <el-row :gutter="1" class="nav" >
+                <el-col :lg="3" :sm="4"  :offset="4">
+                    Copyright © 2017
+                </el-col>
+                <el-col :lg="5" :sm="4"  >
+                    科立讯通信股份有限公司 版权所有
+                </el-col>
+                <el-col :lg="4" :sm="4">
+                    <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target=“_blank”>粤ICP备14024236号-1</a>
+                </el-col>
+                <el-col :lg="4" :sm="4">
+                    PoC 集群管理系统1.9
+                </el-col>
+            </el-row>
+        </el-footer>
     </el-container>
 </template>
 
@@ -103,7 +123,7 @@ export default {
           callback();
         }
       };
-      var validatePass = (rule, value, callback) => {
+      var validatepass = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入密码'));
         } else {
@@ -123,8 +143,8 @@ export default {
           uname: [
             { validator: validateuname, trigger: 'blur' }
           ],
-          checkPass: [
-            { validator: validatePass, trigger: 'blur' }
+          pass: [
+            { validator: validatepass, trigger: 'blur' }
           ]
         }
       };
